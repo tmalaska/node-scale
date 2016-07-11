@@ -91,8 +91,8 @@ public class YarnCollector extends AbstractCollector {
       clusterStatus.setUsedGbMemory(memoryUsed);
       clusterStatus.setQueuedVCores(vCoresQueued);
       clusterStatus.setQueuedGbMemory(memoryQueued);
-      clusterStatus.setTotalVCoresAvaliable(vCoreCount);
-      clusterStatus.setTotalGbMemoryAvaliable(memoryCount);
+      clusterStatus.setTotalVCoresAvaliable(vCoreCount/1000);
+      clusterStatus.setTotalGbMemoryAvaliable(memoryCount/1000);
       clusterStatus.setInstanceStatusList(instanceStatusList);
 
       return clusterStatus;
