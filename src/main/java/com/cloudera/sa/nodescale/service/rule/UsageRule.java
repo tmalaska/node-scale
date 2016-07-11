@@ -10,6 +10,7 @@ import com.cloudera.sa.nodescale.service.rule.utils.CommonRuleLogic;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 import java.util.logging.Logger;
 
 @XmlRootElement
@@ -123,8 +124,8 @@ public class UsageRule extends AbstractSizingRule {
         existingMutationRequest.setRequestedNumberOfNodesToAdd(
                 existingMutationRequest.getRequestedNumberOfNodesToAdd() + finalResult);
       } else {
-        List<String> unresolvedKillList = unresolvedMutationRequest.getInstanceIdsToKill();
-        List<String> killList = existingMutationRequest.getInstanceIdsToKill();
+        Set<String> unresolvedKillList = unresolvedMutationRequest.getInstanceIdsToKill();
+        Set<String> killList = existingMutationRequest.getInstanceIdsToKill();
 
         int nodesToTryToDelete = finalResult * -1;
 

@@ -6,12 +6,13 @@ import com.cloudera.sa.nodescale.model.InstanceStatus;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 import java.util.logging.Logger;
 
 public class CommonRuleLogic {
   public static String IdentifyInstanceToKill(ClusterStatus clusterStatus,
-                                              List<String> unresolveKillList,
-                                              List<String> toKillList,
+                                              Set<String> unresolveKillList,
+                                              Set<String> toKillList,
                                               Integer minumumNumberOfMinutesAfterTheHour) {
     for (InstanceStatus instanceStatus : clusterStatus.getInstanceStatuseList()) {
       if (!instanceStatus.getIsStorageNode() &&

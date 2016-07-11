@@ -105,8 +105,8 @@ public class MinMaxTimeRangeRule extends AbstractSizingRule {
         //If we still need to shrink start removing nodes
         if (newAddNodeCount < 0) {
           int nodesToTryToDelete = Math.abs(newAddNodeCount);
-          List<String> unresolvedKillList = unresolvedMutationRequest.getInstanceIdsToKill();
-          List<String> killList = existingMutationRequest.getInstanceIdsToKill();
+          Set<String> unresolvedKillList = unresolvedMutationRequest.getInstanceIdsToKill();
+          Set<String> killList = existingMutationRequest.getInstanceIdsToKill();
 
           for (int i = 0; i < nodesToTryToDelete; i++) {
             String nodeToKill = CommonRuleLogic.IdentifyInstanceToKill(clusterStatus,

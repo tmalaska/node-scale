@@ -1,4 +1,4 @@
-package com.cloudera.sa.server
+package com.cloudera.sa.exe
 
 import com.cloudera.sa.nodescale.model.{ClusterDefinition, ObjectDefinition}
 import com.cloudera.sa.nodescale.service.RestService
