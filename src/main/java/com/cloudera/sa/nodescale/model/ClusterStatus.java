@@ -4,20 +4,16 @@ package com.cloudera.sa.nodescale.model;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.function.Function;
-import java.util.function.ToDoubleFunction;
-import java.util.function.ToIntFunction;
-import java.util.function.ToLongFunction;
 
 public class ClusterStatus {
   Long asOfTime = System.currentTimeMillis();
-  Integer totalVCoresAvaliable;
-  Integer totalGbMemoryAvaliable;
+  Integer totalVCores;
+  Integer totalGbMemory;
   Integer usedVCores;
   Integer usedGbMemory;
   Integer queuedVCores;
   Integer queuedGbMemory;
-  List<InstanceStatus> instanceStatuseList = new ArrayList<>();
+  List<InstanceStatus> instanceStatusList = new ArrayList<>();
   List<PastReading> pastUsedVCoreList = new ArrayList<>();
   List<PastReading> pastUsedGbMemoryList = new ArrayList<>();
   List<PastReading> pastQueuedVCoreList = new ArrayList<>();
@@ -38,32 +34,32 @@ public class ClusterStatus {
                        List<PastReading> pastUsedGbMemoryList,
                        List<PastReading> pastQueuedVCoreList) {
     this.pastQueuedGbMemoryList = pastQueuedGbMemoryList;
-    this.totalVCoresAvaliable = totalVCoresAvaliable;
-    this.totalGbMemoryAvaliable = totalGbMemoryAvaliable;
+    this.totalVCores = totalVCoresAvaliable;
+    this.totalGbMemory = totalGbMemoryAvaliable;
     this.usedVCores = usedVCores;
     this.usedGbMemory = usedGbMemory;
     this.queuedVCores = queuedVCores;
     this.queuedGbMemory = queuedGbMemory;
-    this.instanceStatuseList = instanceStatuseList;
+    this.instanceStatusList = instanceStatuseList;
     this.pastUsedVCoreList = pastUsedVCoreList;
     this.pastUsedGbMemoryList = pastUsedGbMemoryList;
     this.pastQueuedVCoreList = pastQueuedVCoreList;
   }
 
-  public Integer getTotalVCoresAvaliable() {
-    return totalVCoresAvaliable;
+  public Integer getTotalVCores() {
+    return totalVCores;
   }
 
-  public void setTotalVCoresAvaliable(Integer totalVCoresAvaliable) {
-    this.totalVCoresAvaliable = totalVCoresAvaliable;
+  public void setTotalVCores(Integer totalVCores) {
+    this.totalVCores = totalVCores;
   }
 
-  public Integer getTotalGbMemoryAvaliable() {
-    return totalGbMemoryAvaliable;
+  public Integer getTotalGbMemory() {
+    return totalGbMemory;
   }
 
-  public void setTotalGbMemoryAvaliable(Integer totalGbMemoryAvaliable) {
-    this.totalGbMemoryAvaliable = totalGbMemoryAvaliable;
+  public void setTotalGbMemory(Integer totalGbMemory) {
+    this.totalGbMemory = totalGbMemory;
   }
 
   public Integer getUsedVCores() {
@@ -98,12 +94,12 @@ public class ClusterStatus {
     this.queuedGbMemory = queuedGbMemory;
   }
 
-  public List<InstanceStatus> getInstanceStatuseList() {
-    return instanceStatuseList;
+  public List<InstanceStatus> getInstanceStatusList() {
+    return instanceStatusList;
   }
 
   public void setInstanceStatusList(List<InstanceStatus> instanceStatuseList) {
-    this.instanceStatuseList = instanceStatuseList;
+    this.instanceStatusList = instanceStatuseList;
   }
 
   public List<PastReading> getPastUsedVCoreList() {

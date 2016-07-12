@@ -60,7 +60,7 @@ public class MinMaxTimeRangeRule extends AbstractSizingRule {
     Integer hourOfDay = now.get(Calendar.HOUR_OF_DAY);
     Integer minuteOfHour = now.get(Calendar.MINUTE);
 
-    int futureClusterState = clusterStatus.getInstanceStatuseList().size() +
+    int futureClusterState = clusterStatus.getInstanceStatusList().size() +
             unresolvedMutationRequest.getRequestedNumberOfNodesToAdd() -
             unresolvedMutationRequest.getInstanceIdsToKill().size();
 

@@ -19,8 +19,8 @@ public class MockCollector extends AbstractCollector {
   public MockCollector() {
     reply.setUsedVCores(0);
     reply.setUsedGbMemory(0);
-    reply.setTotalVCoresAvaliable(36);
-    reply.setTotalGbMemoryAvaliable(384);
+    reply.setTotalVCores(36);
+    reply.setTotalGbMemory(384);
     reply.setQueuedGbMemory(0);
     reply.setQueuedVCores(0);
     List<InstanceStatus> instanceList = new ArrayList<>();

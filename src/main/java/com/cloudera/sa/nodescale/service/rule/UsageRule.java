@@ -9,7 +9,6 @@ import com.cloudera.sa.nodescale.service.rule.utils.CommonRuleLogic;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Set;
 import java.util.logging.Logger;
 
@@ -87,7 +86,7 @@ public class UsageRule extends AbstractSizingRule {
       for (PastReading pastReading : clusterStatus.getPastUsedVCoreList()) {
         if (pastReading.getTime() > now - waitTimeToShrink) {
           totalPastIdealvCoreReadings++;
-          totalPastIdealvCores += clusterStatus.getTotalVCoresAvaliable() - pastReading.getReading();
+          totalPastIdealvCores += clusterStatus.getTotalVCores() - pastReading.getReading();
         }
       }
       int avgIdealvCoresInstances = totalPastIdealvCores / totalPastIdealvCoreReadings / baseInstanceType.getUsableVCores();
@@ -98,7 +97,7 @@ public class UsageRule extends AbstractSizingRule {
       for (PastReading pastReading : clusterStatus.getPastUsedGbMemoryList()) {
         if (pastReading.getTime() > now - waitTimeToShrink) {
           totalPastIdealGbMemoryReadings++;
-          totalPastIdealGbMemorys += clusterStatus.getTotalGbMemoryAvaliable() - pastReading.getReading();
+          totalPastIdealGbMemorys += clusterStatus.getTotalGbMemory() - pastReading.getReading();
         }
       }
       int avgIdealGbMemoryInstances = totalPastIdealGbMemorys / totalPastIdealGbMemoryReadings / baseInstanceType.getUsableGbMemory();

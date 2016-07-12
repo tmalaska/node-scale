@@ -9,9 +9,9 @@ public class InstanceStatus {
   Integer usableVCores;
   Integer usableGbMemory;
   Long startTime;
-  Long billableInterval;
+  Long billableInterval = 60000 * 60l;
   Integer status;
-  Boolean isStorageNode;
+  Boolean isFixedNode;
 
   public final static int RUNNING_STATUS = 0;
   public final static int MARKED_FOR_DELETION_STATUS = 1;
@@ -34,7 +34,7 @@ public class InstanceStatus {
     this.startTime = startTime;
     this.billableInterval = billableInterval;
     this.status = status;
-    this.isStorageNode = isStorageNode;
+    this.isFixedNode = isStorageNode;
   }
 
   public String getInstanceId() {
@@ -93,11 +93,11 @@ public class InstanceStatus {
     this.status = status;
   }
 
-  public Boolean getIsStorageNode() {
-    return isStorageNode;
+  public Boolean getIsFixedNode() {
+    return isFixedNode;
   }
 
-  public void setIsStorageNode(Boolean isStorageNode) {
-    this.isStorageNode = isStorageNode;
+  public void setIsFixedNode(Boolean isFixedNode) {
+    this.isFixedNode = isFixedNode;
   }
 }

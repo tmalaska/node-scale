@@ -14,8 +14,8 @@ public class CommonRuleLogic {
                                               Set<String> unresolveKillList,
                                               Set<String> toKillList,
                                               Integer minumumNumberOfMinutesAfterTheHour) {
-    for (InstanceStatus instanceStatus : clusterStatus.getInstanceStatuseList()) {
-      if (!instanceStatus.getIsStorageNode() &&
+    for (InstanceStatus instanceStatus : clusterStatus.getInstanceStatusList()) {
+      if (!instanceStatus.getIsFixedNode() &&
               !unresolveKillList.contains(instanceStatus.getInstanceId()) &&
               !toKillList.contains(instanceStatus.getInstanceId()) &&
               instanceStatus.getStartTime()/60000 % 60 > minumumNumberOfMinutesAfterTheHour)  {

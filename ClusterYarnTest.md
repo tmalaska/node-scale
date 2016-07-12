@@ -8,6 +8,7 @@ scp target/NodeScale.jar root@ted-malaska-cap1-barclay-1.vpc.cloudera.com:./
 ssh root@ted-malaska-cap1-barclay-1.vpc.cloudera.com
 
 #Run the code
+export JAVA_HOME=/opt/jdk1.8.0_91/
 hadoop jar NodeScale.jar com.cloudera.sa.exe.TestYarnCollector
 
 #Tips if you need to update the java version

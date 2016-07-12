@@ -4,7 +4,6 @@ package com.cloudera.sa.nodescale.service.collector;
 import com.cloudera.sa.nodescale.model.ClusterStatus;
 import com.cloudera.sa.nodescale.model.InstanceStatus;
 import org.apache.hadoop.yarn.api.records.*;
-import org.apache.hadoop.yarn.client.api.AMRMClient;
 import org.apache.hadoop.yarn.client.api.YarnClient;
 import org.apache.hadoop.yarn.client.api.impl.AMRMClientImpl;
 import org.apache.hadoop.yarn.client.api.impl.YarnClientImpl;
@@ -33,6 +32,7 @@ public class YarnCollector extends AbstractCollector {
 
     yarnClient.init(conf);
     yarnClient.start();
+
   }
 
   @Override
@@ -82,6 +82,8 @@ public class YarnCollector extends AbstractCollector {
         instanceStatus.setInternalUUID(nodeId.getHost() + ":" + nodeId.getPort());
         instanceStatus.setUsableVCores(nodeReport.getCapability().getVirtualCores());
         instanceStatus.setUsableGbMemory(nodeReport.getCapability().getMemory());
+        instanceStatus.setStartTime(0l);
+        instanceStatus.setIsFixedNode(false);
         instanceStatusList.add(instanceStatus);
         memoryCount += instanceStatus.getUsableGbMemory();
         vCoreCount += instanceStatus.getUsableVCores();
@@ -91,8 +93,8 @@ public class YarnCollector extends AbstractCollector {
       clusterStatus.setUsedGbMemory(memoryUsed);
       clusterStatus.setQueuedVCores(vCoresQueued);
       clusterStatus.setQueuedGbMemory(memoryQueued);
-      clusterStatus.setTotalVCoresAvaliable(vCoreCount/1000);
-      clusterStatus.setTotalGbMemoryAvaliable(memoryCount/1000);
+      clusterStatus.setTotalVCores(vCoreCount);
+      clusterStatus.setTotalGbMemory(memoryCount/1000);
       clusterStatus.setInstanceStatusList(instanceStatusList);
 
       return clusterStatus;

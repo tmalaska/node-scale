@@ -1,0 +1,44 @@
+{
+  "usedVCores": 0,
+  "usedGbMemory": 0,
+  "queuedVCores": 0,
+  "queuedGbMemory": 0,
+  "instanceStatusList": [
+    {
+      "startTime": 0,
+      "status": null,
+      "usableGbMemory": 1024,
+      "usableVCores": 4,
+      "instanceId": "ted-malaska-cap1-barclay-1.vpc.cloudera.com",
+      "internalUUID": "ted-malaska-cap1-barclay-1.vpc.cloudera.com:8041",
+      "billableInterval": 3600000,
+      "isFixedNode": false
+    },
+    {
+      "startTime": 0,
+      "status": null,
+      "usableGbMemory": 1024,
+      "usableVCores": 4,
+      "instanceId": "ted-malaska-cap1-barclay-2.vpc.cloudera.com",
+      "internalUUID": "ted-malaska-cap1-barclay-2.vpc.cloudera.com:8041",
+      "billableInterval": 3600000,
+      "isFixedNode": false
+    },
+    {
+      "startTime": 0,
+      "status": null,
+      "usableGbMemory": 1057,
+      "usableVCores": 4,
+      "instanceId": "ted-malaska-cap1-barclay-5.vpc.cloudera.com",
+      "internalUUID": "ted-malaska-cap1-barclay-5.vpc.cloudera.com:8041",
+      "billableInterval": 3600000,
+      "isFixedNode": false
+    }
+  ],
+  "pastQueuedVCoreList": [],
+  "pastQueuedGbMemoryList": [],
+  "pastUsedVCoreList": [],
+  "totalVCores": 12,
+  "pastUsedGbMemoryList": [],
+  "totalGbMemory": 3
+}

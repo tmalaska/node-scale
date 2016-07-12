@@ -8,8 +8,6 @@ import com.cloudera.sa.nodescale.service.collector.ClusterStatusCollector;
 import com.cloudera.sa.nodescale.service.collector.CollectionBuilder;
 import com.cloudera.sa.nodescale.service.rule.RuleCollection;
 
-import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import java.util.logging.Logger;
 
@@ -59,10 +57,13 @@ public class ClusterManager {
   public ClusterStatus collectClusterStatus() {
     ClusterStatus newStatus = collector.collect();
 
-    newStatus.addAppendPastValues(existingClusterStatus);
+    int nodeChange = 0;
+    if (existingClusterStatus != null) {
+      newStatus.addAppendPastValues(existingClusterStatus);
 
-    int nodeChange = newStatus.getInstanceStatuseList().size() -
-            existingClusterStatus.getInstanceStatuseList().size();
+      nodeChange = newStatus.getInstanceStatusList().size() -
+              existingClusterStatus.getInstanceStatusList().size();
+    }
 
     log.info("Collection Cluster Status: Node Change -> " + nodeChange);
     if (nodeChange > 0) {
@@ -72,7 +73,7 @@ public class ClusterManager {
     } else if (nodeChange < 0) {
       //Remove items from unresolved
       Set<String> killSet = unresolvedMutationRequest.getInstanceIdsToKill();
-      for (InstanceStatus instanceStatuse: newStatus.getInstanceStatuseList()) {
+      for (InstanceStatus instanceStatuse: newStatus.getInstanceStatusList()) {
         if (killSet.contains(instanceStatuse.getInstanceId())) {
           killSet.remove(instanceStatuse.getInstanceId());
         }
